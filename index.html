@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nekos Best</title>
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Product Sans', Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 2s ease forwards, slideIn 2.5s ease forwards;
+            transform: translateY(60px);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(60px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input[type="number"],
+        .form-group button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="number"] {
+            flex: 1 1 auto;
+            max-width: 200px;
+        }
+
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .custom-select {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+
+        .select-selected {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 4px;
+            user-select: none;
+        }
+
+        .select-selected:hover {
+            background-color: #0056b3;
+        }
+
+        .select-items {
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            z-index: 99;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .select-items div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .select-items div:hover {
+            background-color: #ddd;
+        }
+
+        .select-hide {
+            display: none;
+        }
+
+        .select-arrow-active::after {
+            border-color: #fff transparent transparent transparent;
+            top: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>= Nekos Best =</h1>
+        
+        <div class="form-group">
+            <div class="custom-select" id="endpointSelector">
+                <div class="select-selected">Select Type</div>
+                <div class="select-items select-hide">
+                    <div data-value="neko">Neko</div>
+                    <div data-value="kitsune">Kitsune</div>
+                    <div data-value="waifu">Waifu</div>
+                    <div data-value="husbando">Husbando</div>
+                    <div data-value="lurk">Lurk</div>
+                    <div data-value="shoot">Shoot</div>
+                    <div data-value="sleep">Sleep</div>
+                    <div data-value="baka">Baka</div>
+                    <div data-value="bite">Bite</div>
+                    <div data-value="blush">Blush</div>
+                    <div data-value="bored">Bored</div>
+                    <div data-value="cry">Cry</div>
+                    <div data-value="cuddle">Cuddle</div>
+                    <div data-value="dance">Dance</div>
+                    <div data-value="facepalm">Facepalm</div>
+                    <div data-value="feed">Feed</div>
+                    <div data-value="handhold">Handhold</div>
+                    <div data-value="handshake">Handshake</div>
+                    <div data-value="happy">Happy</div>
+                    <div data-value="highfive">Highfive</div>
+                    <div data-value="hug">Hug</div>
+                    <div data-value="kick">Kick</div>
+                    <div data-value="kiss">Kiss</div>
+                    <div data-value="laugh">Laugh</div>
+                    <div data-value="neko-pat">Neko-Pat</div>
+                    <div data-value="neko-slaps">Neko-Slaps</div>
+                    <div data-value="nod">Nod</div>
+                    <div data-value="nom">Nom</div>
+                    <div data-value="pout">Pout</div>
+                    <div data-value="punch">Punch</div>
+                    <div data-value="scared">Scared</div>
+                    <div data-value="shrug">Shrug</div>
+                    <div data-value="sleepy">Sleepy</div>
+                    <div data-value="smile">Smile</div>
+                    <div data-value="stare">Stare</div>
+                    <div data-value="tailwag">Tailwag</div>
+                    <div data-value="think">Think</div>
+                    <div data-value="thumbsup">Thumbsup</div>
+                    <div data-value="tickle">Tickle</div>
+                    <div data-value="wave">Wave</div>
+                    <div data-value="wink">Wink</div>
+                </div>
+            </div>
+            
+            <label for="amountInput"></label>
+            <input type="number" id="amountInput" min="1" max="20" value="1">
+            
+            <button id="loadImageButton">Show Me</button>
+        </div>
+        
+        <div id="nekoImages" class="image-grid"></div>
+    </div>
+
+    <script>
+        document.querySelector('.select-selected').addEventListener('click', function() {
+            this.nextElementSibling.classList.toggle('select-hide');
+            this.classList.toggle('select-arrow-active');
+        });
+
+        const items = document.querySelectorAll('.select-items div');
+        items.forEach(item => {
+            item.addEventListener('click', function() {
+                const selected = document.querySelector('.select-selected');
+                selected.textContent = this.textContent;
+                selected.setAttribute('data-value', this.getAttribute('data-value'));
+                document.querySelector('.select-items').classList.add('select-hide');
+                document.querySelector('.select-arrow-active').classList.remove('select-arrow-active');
+            });
+        });
+
+        async function fetchNekoImages(endpoint, amount) {
+            try {
+                const response = await fetch(`https://nekos.best/api/v2/${endpoint}?amount=${amount}`);
+                const data = await response.json();
+                const imagesDiv = document.getElementById('nekoImages');
+                imagesDiv.innerHTML = '';
+                
+                data.results.forEach(result => {
+                    const img = document.createElement('img');
+                    img.src = result.url;
+                    img.alt = 'Random Image'; // Add alt attribute for accessibility
+                    img.classList.add('loaded'); // Add loaded class for animation
+                    
+                    // Create anchor tag for download
+                    const anchor = document.createElement('a');
+                    anchor.href = result.url;
+                    anchor.download = 'image.jpg'; // Default filename
+                    
+                    // Append image to anchor and anchor to imagesDiv
+                    anchor.appendChild(img);
+                    imagesDiv.appendChild(anchor);
+                });
+            } catch (error) {
+                console.error('Error fetching the images:', error);
+            }
+        }
+
+        document.getElementById('loadImageButton').addEventListener('click', () => {
+            const amount = document.getElementById('amountInput').value;
+            const endpoint = document.querySelector('.select-selected').getAttribute('data-value');
+            
+            if (!endpoint) {
+                alert('Please select an endpoint.');
+                return;
+            }
+
+            if (amount < 1 || amount > 20) {
+                alert('Please enter a number between 1 and 20.');
+                return;
+            }
+
+            fetchNekoImages(endpoint, amount);
+        });
+
+        // Load a default image on initial page load
+        fetchNekoImages('neko', 1);
+    </script>
+</body>
+</html>
+
+           
